@@ -93,5 +93,10 @@ Se diseñó un sistema modular con:
 - **os**: Manejo de rutas y sistema de archivos.
 - **abc**: Clases abstractas en Python.
 
+## Enlace del video
+
+https://youtu.be/BwFthPRSQZk
+
+
 
 
