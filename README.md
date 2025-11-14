@@ -10,7 +10,7 @@ Autor: Johnatan Ramirez
 
 
 
-Punto 1 
+Punto 1
 
 
 
@@ -18,13 +18,13 @@ Análisis de Audio con Librosa
 
 
 
-Se implementó un sistema orientado a objetos que analiza archivos ".wav", obteniendo su duración y energía promedio.  
+Se implementó un sistema orientado a objetos que analiza archivos ".wav", obteniendo su duración y energía promedio.
 
 Se aplica recursividad para recorrer carpetas y se grafican las duraciones con "matplotlib".
 
 
 
-Punto 2 
+Punto 2
 
 
 
@@ -38,13 +38,13 @@ Se crean clases con herencia para aplicar filtros de escala de grises y desenfoq
 
 Librerías utilizadas
 
-\- numpy  
+\- numpy
 
-\- matplotlib  
+\- matplotlib
 
-\- librosa  
+\- librosa
 
-\- opencv-python  
+\- opencv-python
 
 
 
@@ -52,11 +52,11 @@ Instrucciones de ejecución
 
 
 
-1\. Abrir los notebooks en Google Colab.  
+1\. Abrir los notebooks en Google Colab.
 
-2\. Montar Google Drive y colocar las rutas de las carpetas de audios o imágenes.  
+2\. Montar Google Drive y colocar las rutas de las carpetas de audios o imágenes.
 
-3\. Ejecutar todas las celdas.  
+3\. Ejecutar todas las celdas.
 
 4\. Los resultados se muestran en pantalla y se guardan en la carpeta "resultados".
 
@@ -66,5 +66,5 @@ Enlace del video explicativo
 
 
 
-
+https://youtu.be/K2LGIfBpZJ8
 
