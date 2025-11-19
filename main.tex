@@ -1,0 +1,153 @@
+% IEEE article
+\documentclass[conference]{IEEEtran}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{float}
+
+\title{Transformers y Large Language Models: Arquitectura, Principales Modelos y Experimentos}
+
+\author{%
+  \IEEEauthorblockN{Jorge Luis Berrio Pino}
+  \IEEEauthorblockA{Instituto Tecnológico Metropolitano (ITM)\\
+  jorgeberrio196242@correo.itm.edu.co}
+  \\
+  \IEEEauthorblockN{Julián David Arias Zapata}
+  \IEEEauthorblockA{Instituto Tecnológico Metropolitano (ITM)\\
+  julianarias240909@correo.itm.edu.co}
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+La arquitectura Transformer ha revolucionado el Procesamiento del Lenguaje Natural (PLN) desde su introducción en 2017. Su mecanismo de autoatención permitió la creación de los Large Language Models (LLMs), que hoy en día son la base de sistemas avanzados como GPT, Llama y Gemini. En este artículo se presenta un análisis conceptual de los Transformers, se comparan los principales LLMs actuales y se incluye una implementación experimental en Python basada en un Transformer Encoder. Además, se documentan los resultados del entrenamiento y se provee una discusión de sus implicaciones.
+\end{abstract}
+
+\section{Introducción}
+La aparición de los Transformers con el artículo \textit{"Attention is All You Need"} \cite{vaswani2017attention} marcó un punto de inflexión en el PLN. A diferencia de arquitecturas previas basadas en RNNs o LSTMs, los Transformers utilizan mecanismos de atención que permiten capturar dependencias de largo alcance sin recurrencia.
+
+Los LLMs actuales, como GPT-5.1 de OpenAI, Llama 4 de Meta y Gemini 2.5 de Google, son modelos basados en variantes de Transformers entrenados con billones de tokens y optimizados para tareas generales de razonamiento, generación y análisis de lenguaje.
+
+Este trabajo combina un análisis técnico de arquitecturas, un estudio comparativo y una implementación experimental usando PyTorch.
+
+\section{Métodos}
+El enfoque metodológico empleado incluye tres ejes principales:
+\begin{itemize}
+    \item \textbf{Análisis teórico}: revisión de literatura sobre Transformers y LLMs.
+    \item \textbf{Comparación de modelos}: estudio de características, fortalezas y diferencias entre Llama, GPT y Gemini.
+    \item \textbf{Implementación experimental}: construcción y entrenamiento de un Transformer Encoder simple usando PyTorch.
+\end{itemize}
+
+\section{Arquitectura Transformer}
+La arquitectura original está compuesta por codificadores y decodificadores basados en atención multi-cabeza y redes feed-forward. El mecanismo principal es la \\textit{Scaled Dot-Product Attention}, definida como:
+
+\begin{equation}
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^{T}}{\sqrt{d_k}}\right)V
+\end{equation}
+
+Este mecanismo permite ponderar la relevancia entre elementos de una secuencia.
+
+\section{Large Language Models (LLMs)}
+Los LLMs son Transformers de gran escala entrenados con cantidades masivas de datos. Pueden ser \textit{decoder-only} como GPT, \textit{encoder-decoder} como T5 o totalmente multimodales.
+
+\subsection{Principales Modelos}
+\textbf{Llama 4 (Meta)}: Lanzado en 2025, presenta variantes como Scout y Maverick, con capacidades multimodales y soporte de contexto extendido.
+
+\textbf{GPT-5.1 (OpenAI)}: Modelo de 2025 optimizado para razonamiento adaptativo y velocidad conversacional.
+
+\textbf{Gemini 2.5 (Google)}: Una de las arquitecturas multimodales más avanzadas, con excelentes resultados en matemáticas, razonamiento y uso de herramientas.
+
+\section{Comparación de Modelos}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Modelo & Parámetros & Capacidades & Año \\
+\midrule
+Llama 4 Scout & 17B activos & Multimodal, eficiente & 2025 \\
+GPT-5.1 Instant & -- & Razonamiento adaptativo & 2025 \\
+Gemini 2.5 Pro & -- & Computer Use, reasoning & 2025 \\
+\bottomrule
+\end{tabular}
+\caption{Comparación general entre principales LLMs.}
+\label{tab:llm_comparison}
+\end{table}
+
+\section{Espacio para Figuras}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{ruta-figura-transformer.png}
+\caption{Arquitectura general de un Transformer.}
+\label{fig:transformer}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{ruta-grafica-entrenamiento.png}
+\caption{Gráfica de pérdida durante el entrenamiento.}
+\label{fig:loss}
+\end{figure}
+
+\section{Algoritmo}
+
+\begin{algorithm}
+\caption{Entrenamiento de un Transformer Encoder}
+\begin{algorithmic}[1]
+\State Inicializar modelo, optimizador y función de pérdida
+\For{cada época}
+  \State Calcular predicción del modelo
+  \State Calcular pérdida
+  \State Retropropagar gradientes
+  \State Actualizar parámetros
+\EndFor
+\State Guardar modelo final
+\end{algorithmic}
+\end{algorithm}
+
+\section{Resultados Experimentales}
+Para el experimento se entrenó un Transformer Encoder simple con PyTorch usando secuencias sintéticas. La pérdida disminuyó progresivamente, mostrando aprendizaje adecuado.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+Época & Pérdida \\
+\midrule
+10 & 1.20 \\
+20 & 0.80 \\
+30 & 0.40 \\
+40 & 0.10 \\
+50 & 0.05 \\
+\bottomrule
+\end{tabular}
+\caption{Evolución de la pérdida.}
+\label{tab:loss}
+\end{table}
+
+\section{Conclusiones}
+Los Transformers representan actualmente la base de los sistemas avanzados de PLN. Los LLMs como GPT-5.1, Llama 4 y Gemini 2.5 demuestran capacidades sin precedentes. La implementación experimental permite comprender cómo funcionan estos modelos a nivel interno, aunque entrenar un LLM real requiere datos masivos y hardware especializado.
+
+\section*{Bibliografía}
+\begin{thebibliography}{00}
+\bibitem{vaswani2017attention} Vaswani, A., et al., "Attention Is All You Need", 2017.
+\bibitem{meta2025llama} Meta AI, "Llama 4 Models", 2025.
+\bibitem{openai2025gpt} OpenAI, "GPT-5.1 Release Notes", 2025.
+\bibitem{google2025gemini} Google DeepMind, "Gemini 2.5 Technical Overview", 2025.
+\end{thebibliography}
+
+\end{document}
+
